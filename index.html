@@ -135,6 +135,26 @@
 </style>
 </head>
 <body>
+  
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=TqsAlXxW_DgAl_3Tsks4&submodules=geocoder"></script>
+  <script>
+    window.onload = function() {
+      var mapOptions = {
+        center: new naver.maps.LatLng(37.1544, 127.0724),
+        zoom: 15,
+        zoomControl: true,
+        zoomControlOptions: {
+          position: naver.maps.Position.TOP_RIGHT
+        }
+      };
+      var map = new naver.maps.Map('map', mapOptions);
+      var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.1544, 127.0724),
+        map: map,
+        title: 'Arte공작소'
+      });
+    };
+  </script>
 
 <header>
   <h1><a href="index.html" style="color: inherit; text-decoration: none;">Arte공작소</a></h1>
@@ -253,25 +273,7 @@
   });
 </script>
 
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=TqsAlXxW_DgAl_3Tsks4&submodules=geocoder"></script>
-<script>
-  window.onload = function() {
-    var mapOptions = {
-      center: new naver.maps.LatLng(37.1544, 127.0724),
-      zoom: 15,
-      zoomControl: true,
-      zoomControlOptions: {
-        position: naver.maps.Position.TOP_RIGHT
-      }
-    };
-    var map = new naver.maps.Map('map', mapOptions);
-    var marker = new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.1544, 127.0724),
-      map: map,
-      title: 'Arte공작소'
-    });
-  };
-</script>
+
 
 </body>
 </html>
