@@ -136,25 +136,8 @@
 </head>
 <body>
   
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=TqsAlXxW_DgAl_3Tsks4&submodules=geocoder"></script>
-  <script>
-    window.onload = function() {
-      var mapOptions = {
-        center: new naver.maps.LatLng(37.1544, 127.0724),
-        zoom: 15,
-        zoomControl: true,
-        zoomControlOptions: {
-          position: naver.maps.Position.TOP_RIGHT
-        }
-      };
-      var map = new naver.maps.Map('map', mapOptions);
-      var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.1544, 127.0724),
-        map: map,
-        title: 'Arte공작소'
-      });
-    };
-  </script>
+
+
 
 <header>
   <h1><a href="index.html" style="color: inherit; text-decoration: none;">Arte공작소</a></h1>
@@ -272,7 +255,44 @@
     event.preventDefault();
   });
 </script>
+<!-- 지도 API 불러오기 (services 포함, autoload=false로 설정) -->
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=89855fe48426282326bf5edff5170837&libraries=services&autoload=false"></script>
 
+<script>
+  // 지도 코드 실행
+  kakao.maps.load(function () {
+    var container = document.getElementById('map');
+    var options = {
+      center: new kakao.maps.LatLng(37.1544, 127.0724),
+      level: 3
+    };
+    var map = new kakao.maps.Map(container, options);
+
+    var geocoder = new kakao.maps.services.Geocoder();
+    var address = '경기 오산시 서동로 157번길 30-9';
+
+    geocoder.addressSearch(address, function (result, status) {
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        map.setCenter(coords);
+
+        var marker = new kakao.maps.Marker({
+          map: map,
+          position: coords
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+          content: '<div style="padding:5px;font-size:12px;">Arte공작소</div>'
+        });
+        infowindow.open(map, marker);
+
+        kakao.maps.event.addListener(marker, 'click', function () {
+          infowindow.open(map, marker);
+        });
+      }
+    });
+  });
+</script>
 
 
 </body>
