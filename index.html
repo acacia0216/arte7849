@@ -1,152 +1,277 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arte Studio</title>
-  <style>
-    /* 기본 스타일 */
-    body {
-      margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f9f7f1;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #8b5e3c;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-    nav {
-      background-color: #a97c50;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 12px 0;
-      font-weight: 600;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arte공작소</title>
+<style>
+  /* 기본 리셋 */
+  * {
+    box-sizing: border-box;
+    user-select: none;
+  }
+  body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif, sans-serif;
+    background-color: #fff;
+    color: #333;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #8b5e3c;
+  }
+  nav a {
+    margin-left: 30px;
+    font-weight: 600;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #8b5e3c;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f8f5f0;
+    height: 60vh;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .hero h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #6b4423;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: #7a6c58;
+  }
+  .btn-primary {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #8b5e3c;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #a97c50;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  section {
+    margin-bottom: 60px;
+  }
+  section h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6b4423;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #8b5e3c;
+    padding-bottom: 8px;
+  }
+  ul.services-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 20px;
+  }
+  ul.services-list li {
+    background: #fefefe;
+    padding: 25px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-weight: 600;
+    color: #5a3e1b;
+  }
+
+  footer {
+    background: #8b5e3c;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+
+  /* 반응형 */
+  @media (max-width: 600px) {
+    .hero h2 {
+      font-size: 2rem;
     }
     nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #f7c08a;
-    }
-    main {
-      max-width: 960px;
-      margin: 30px auto;
-      padding: 0 15px;
-    }
-    .intro {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .intro h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #6b4423;
-    }
-    .intro p {
-      font-size: 1.2rem;
-      color: #7a6c58;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    section h2 {
-      border-bottom: 3px solid #8b5e3c;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      color: #5a3e1b;
-    }
-    ul.services-list {
-      list-style: none;
-      padding: 0;
-    }
-    ul.services-list li {
-      background-color: #fff;
-      padding: 15px 20px;
-      margin-bottom: 12px;
-      border-left: 5px solid #8b5e3c;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-      font-weight: 500;
-    }
-    .contact-info p {
-      margin: 8px 0;
-      font-size: 1.1rem;
-    }
-    footer {
-      background-color: #8b5e3c;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
+      margin-left: 15px;
       font-size: 0.9rem;
     }
-    /* 반응형 */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .intro h1 {
-        font-size: 2rem;
-      }
-      main {
-        margin: 20px auto;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    Arte Studio
-  </header>
+
+<header>
+  <h1><a href="index.html" style="color: inherit; text-decoration: none;">Arte공작소</a></h1>
   <nav>
-    <a href="#about">회사 소개</a>
-    <a href="#services">사업 분야</a>
-    <a href="#contact">문의하기</a>
+    <a href="#about">회사소개</a>
+    <a href="#services">사업분야</a>
+    <a href="javascript:void(0);" onclick="document.getElementById('contactModal').style.display='block'">문의하기</a>
   </nav>
-  <main>
-    <section class="intro" id="home">
-      <h1>예술과 기술이 만나는 공간, Arte공작소</h1>
-      <p>학교 인테리어, 도서관, 과학실 리모델링, 명화벽화 시공, 목공체험까지<br>교육과 창의가 만나는 공간을 만듭니다.</p>
-    </section>
+</header>
 
-    <section id="about">
-      <h2>회사 소개</h2>
-      <p>경기 오산시 서동로 157번길 30-9에 위치한 Arte공작소는 교육 공간의 가치를 높이고자 학교 인테리어, 도서관, 과학실 리모델링, 명화 벽화 시공 및 목공 체험 프로그램을 제공합니다.</p>
-    </section>
+<section class="hero" style="
+  position: relative;
+  background: url('공방내부.png') no-repeat center center;
+  background-size: cover;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+">
+  <div style="
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+  "></div>
 
-    <section id="services">
-      <h2>사업 분야</h2>
-      <ul class="services-list">
-        <li>학교 인테리어: 교실, 복도, 휴게공간 리모델링</li>
-        <li>도서관 리모델링: 독서 환경 조성, 책장 제작</li>
-        <li>과학실 리모델링: 실험대, 수납장, 안전장치 시공</li>
-        <li>명화 벽화 시공: 학교 벽에 맞는 명화 및 창의적 디자인 벽화</li>
-        <li>목공 체험: 학생 대상 체험 수업, 이동형 체험 프로그램 운영</li>
-      </ul>
-    </section>
+  <div style="
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    max-width: 800px;
+    margin: 0 auto;
+  ">
+    <h2 style="margin: 0 0 15px; color: #d4a76a;">예술과 기술이 만나는 공간, Arte공작소</h2>
+</div>
+<div>
+    <p style="margin-left: 110; font-size: 1.2rem; color: white;">학교 인테리어, 도서관 및 과학실 리모델링, 명화 벽화 시공과</br>목공 체험 프로그램을 통해 교육 공간의 가치를 높입니다.</p>
+</div>
+</section>
 
-    <section id="contact">
-      <h2>문의하기</h2>
-      <div class="contact-info">
-        <p>전화: <a href="tel:050713507849">0507-1350-7849</a></p>
-        <p>주소: 경기 오산시 서동로 157번길 30-9 아르떼공작소</p>
-        <p>문의는 전화로 연락 주시면 친절히 상담해 드립니다.</p>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    &copy; 2025 Arte Studio. All rights reserved.
-  </footer>
+<main>
+  <section id="about">
+    <h3>회사소개</h3>
+    <p>Arte공작소는 학교 인테리어, 도서관과 과학실 리모델링, 명화 벽화 시공 등 다양한 분야에서 교육 공간의 품격을 한층 높이는 전문 서비스를 제공합니다. </br>또한, 학생들이 직접 참여할 수 있는 목공 체험 프로그램을 운영하여 창의력과 실습 능력을 동시에 키울 수 있도록 돕고 있습니다.</p>
+  </section>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <img src="학교1.png" alt="학교1" style="width: 30%;">
+    <img src="학교2.png" alt="학교2" style="width: 30%;">
+    <img src="학교3.png" alt="학교3" style="width: 30%;">
+  </div>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <img src="도서관.png" alt="사진1" style="width: 30%;">
+    <img src="도서관작업.png" alt="사진2" style="width: 30%;">
+    <img src="칠판.png" alt="사진3" style="width: 30%;">
+  </div>
+
+  <section id="services">
+    <h3>사업분야</h3>
+    <ul class="services-list">
+      <li>학교 인테리어: 쾌적하고 창의적인 학습 공간 조성</li>
+      <li>도서관 리모델링: 독서 환경 개선 및 맞춤형 책장 제작</li>
+      <li>과학실 리모델링: 안전하고 효율적인 실험 공간 구축</li>
+      <li>명화 벽화 시공: 교육적 메시지가 담긴 아름다운 벽화 제작</li>
+      <li>목공 체험 프로그램: 학생 대상 창의력 향상 실습 수업 운영</li>
+    </ul>
+  </section>
+
+  <section id="location">
+    <h3>오시는 길</h3>
+    <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+  </section>
+
+  <section id="contact">
+    <h3>문의하기</h3>
+    <div>
+      <p style="margin: 2px 0; font-size: 0.9rem;">전화: <a href="javascript:void(0);" onclick="document.getElementById('contactModal').style.display='block'">0507-1350-7849</a> | 이메일: <a href="javascript:void(0);" onclick="document.getElementById('contactModal').style.display='block'">iou776@korea.kr</a> | 주소: 경기 오산시 서동로 157번길 30-9</p>
+      <p style="margin: 2px 0; font-size: 0.9rem;">궁금한 점이 있으시면 언제든 연락 주세요. 친절히 상담해 드립니다.</p>
+    </div>
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: -80px;">
+      <a href="javascript:void(0);" onclick="document.getElementById('contactModal').style.display='block'" class="btn-primary">문의하기</a>
+    </div>
+  </section>
+</main>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 80px; right: 50px; background: #8b5e3c; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer;">↑</button>
+
+<footer>
+  &copy; 2025 Arte공작소. All rights reserved.
+</footer>
+
+<div id="contactModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:hidden; background-color:rgba(0,0,0,0.5);" onclick="document.getElementById('contactModal').style.display='none'">
+  <div style="background-color:#fefefe; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; border:1px solid #888; width:500px;" onclick="event.stopPropagation();">
+    <span style="color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('contactModal').style.display='none'">&times;</span>
+    <iframe src="contact_pop.html" style="width:100%; height:500px; border:none;"></iframe>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+  });
+</script>
+
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=TqsAlXxW_DgAl_3Tsks4&submodules=geocoder"></script>
+<script>
+  window.onload = function() {
+    var mapOptions = {
+      center: new naver.maps.LatLng(37.1544, 127.0724),
+      zoom: 15,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT
+      }
+    };
+    var map = new naver.maps.Map('map', mapOptions);
+    var marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(37.1544, 127.0724),
+      map: map,
+      title: 'Arte공작소'
+    });
+  };
+</script>
+
 </body>
 </html>
