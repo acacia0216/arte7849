@@ -1,20 +1,152 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arte 웹사이트</title>
-    <style>
-        body { font-family: 'Noto Sans KR', sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
-        .container { max-width: 600px; margin: 80px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 40px; text-align: center; }
-        h1 { color: #2d3a4b; }
-        p { color: #555; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arte공작소</title>
+  <style>
+    /* 기본 스타일 */
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f9f7f1;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #8b5e3c;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    nav {
+      background-color: #a97c50;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 0;
+      font-weight: 600;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f7c08a;
+    }
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #6b4423;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      color: #7a6c58;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      border-bottom: 3px solid #8b5e3c;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #5a3e1b;
+    }
+    ul.services-list {
+      list-style: none;
+      padding: 0;
+    }
+    ul.services-list li {
+      background-color: #fff;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      border-left: 5px solid #8b5e3c;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+      font-weight: 500;
+    }
+    .contact-info p {
+      margin: 8px 0;
+      font-size: 1.1rem;
+    }
+    footer {
+      background-color: #8b5e3c;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+    }
+    /* 반응형 */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .intro h1 {
+        font-size: 2rem;
+      }
+      main {
+        margin: 20px auto;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Arte 웹사이트</h1>
-        <p>환영합니다! 이곳은 Arte의 정적 웹사이트입니다.</p>
-    </div>
+  <header>
+    Arte공작소
+  </header>
+  <nav>
+    <a href="#about">회사 소개</a>
+    <a href="#services">사업 분야</a>
+    <a href="#contact">문의하기</a>
+  </nav>
+  <main>
+    <section class="intro" id="home">
+      <h1>예술과 기술이 만나는 공간, Arte공작소</h1>
+      <p>학교 인테리어, 도서관, 과학실 리모델링, 명화벽화 시공, 목공체험까지<br>교육과 창의가 만나는 공간을 만듭니다.</p>
+    </section>
+
+    <section id="about">
+      <h2>회사 소개</h2>
+      <p>경기 오산시 서동로 157번길 30-9에 위치한 Arte공작소는 교육 공간의 가치를 높이고자 학교 인테리어, 도서관, 과학실 리모델링, 명화 벽화 시공 및 목공 체험 프로그램을 제공합니다.</p>
+    </section>
+
+    <section id="services">
+      <h2>사업 분야</h2>
+      <ul class="services-list">
+        <li>학교 인테리어: 교실, 복도, 휴게공간 리모델링</li>
+        <li>도서관 리모델링: 독서 환경 조성, 책장 제작</li>
+        <li>과학실 리모델링: 실험대, 수납장, 안전장치 시공</li>
+        <li>명화 벽화 시공: 학교 벽에 맞는 명화 및 창의적 디자인 벽화</li>
+        <li>목공 체험: 학생 대상 체험 수업, 이동형 체험 프로그램 운영</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>문의하기</h2>
+      <div class="contact-info">
+        <p>전화: <a href="tel:050713507849">0507-1350-7849</a></p>
+        <p>주소: 경기 오산시 서동로 157번길 30-9 아르떼공작소</p>
+        <p>문의는 전화로 연락 주시면 친절히 상담해 드립니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Arte공작소. All rights reserved.
+  </footer>
 </body>
-</html> 
+</html>
